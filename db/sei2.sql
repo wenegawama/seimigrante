@@ -239,6 +239,8 @@ ALTER TABLE `perfil`
 ALTER TABLE `usuario`
   MODIFY `idUsuario` int(9) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE usuario DROP INDEX ativo_UNIQUE;
+
 --
 -- Restrições para despejos de tabelas
 --

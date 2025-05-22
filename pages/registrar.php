@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $celular = $_POST['celular'];
     $genero = $_POST['genero'];
     $pais = $_POST['pais'];
-    $email_login = $_POST['email_login'];
+    $login = $_POST['login'];
     $senha = $_POST['senha'];
     $perfil = $_POST['perfil'];
     $ativo = $_POST['ativo'];
@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new DBConnection();
     $conn = $db->getConnection();
 
-    $usuario = new Usuario(null, $_POST['nome'], $_POST['celular'], $_POST['genero'], $_POST['pais'], $_POST['email_login'], $_POST['senha'], $_POST['perfil'], $_POST['ativo']);
+    $usuario = new Usuario(null, $_POST['nome'], $_POST['celular'], $_POST['genero'], $_POST['pais'], $_POST['login'], $_POST['senha'], $_POST['perfil'], $_POST['ativo']);
 
-    $stmt = $conn->prepare("INSERT INTO usuarios (nome, celular, genero, pais, email_login, senha, perfil, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO usuario (nome, celular, genero, pais, login, senha, perfil, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([
         $usuario->getNome(),
         $usuario->getCelular(),
@@ -110,12 +110,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
             </div>
             <div class="mb-3">
-                <label for="pais" class="form-label">País</label>
-                <input type="text" class="form-control" id="pais" name="pais" required>
+             <label for="pais" class="form-label">País</label>
+            <select class="form-control" id="pais" name="pais">
+                <option value="1">Brasil</option>
+            </select>
             </div>
             <div class="mb-3">
-                <label for="email_login" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email_login" name="email_login" required>
+                <label for="login" class="form-label">Email</label>
+                <input type="email" class="form-control" id="login" name="login" required>
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
@@ -123,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <input type="number" class="form-control" id="perfil" name="perfil"
-                    value=1 hidden>
+                    value=2 hidden>
             </div>
             <div class="mb-3">
                 <input type="number" class="form-control" id="ativo" name="ativo"
@@ -131,6 +133,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
     </div>
+
+
+    <script src="/js/registrar.js"></script>
 </body>
 
 </html>

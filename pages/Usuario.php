@@ -6,18 +6,18 @@ class Usuario {
     private $celular;
     private $genero;
     private $pais;
-    private $email_login;
+    private $login;
     private $senha;
     private $perfil;
     private $ativo;
 
-    public function __construct($id, $nome, $celular, $genero, $pais, $email_login, $senha, $perfil, $ativo) {
+    public function __construct($id, $nome, $celular, $genero, $pais, $login, $senha, $perfil, $ativo) {
         $this->id = $id;
         $this->nome = $nome;
         $this->celular = $celular;
         $this->genero = $genero;
         $this->pais = $pais;
-        $this->email_login = $email_login;
+        $this->login = $login;
         $this->setSenha($senha); 
         $this->perfil = $perfil;
         $this->ativo = $ativo;
@@ -44,7 +44,7 @@ class Usuario {
     }
 
     public function getEmailLogin() {
-        return $this->email_login;
+        return $this->login;
     }
 
     public function getSenha() {
@@ -75,8 +75,8 @@ class Usuario {
         $this->pais = $pais;
     }
 
-    public function setEmailLogin($email_login) {
-        $this->email_login = $email_login;
+    public function setEmailLogin($login) {
+        $this->login = $login;
     }
 
     public function setSenha($senha) {
