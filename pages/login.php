@@ -1,5 +1,31 @@
 
+<?php
+session_start();
+require_once __DIR__ . '/../db/DBConnection.php';
 
+$erro = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['password'] ?? '';
+
+    $db = new DBConnection();
+    $conn = $db->getConnection();
+
+    $stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ? AND ativo = 1 LIMIT 1");
+    $stmt->execute([$email]);
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuario && password_verify($senha, $usuario['senha'])) {
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['usuario_nome'] = $usuario['nome'];
+        header('Location: dashboard.php');
+        exit;
+    } else {
+        $erro = 'Email ou senha inválidos!';
+    }
+}
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -44,6 +70,9 @@
               <h3 class="text-center">Login</h3>
             </div>
             <div class="card-body">
+              <?php if (!empty($erro)): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($erro) ?></div>
+              <?php endif; ?>
               <form action="login.php" method="post">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
