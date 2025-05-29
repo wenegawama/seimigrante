@@ -32,10 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
     if ($stmt) {
-        echo "Usuário registrado com sucesso!";
-    } else {
-        echo "Erro ao registrar usuário.";
-    }
+    header('Location: login.php');
+    exit;
+} else {
+    echo "Erro ao registrar usuário.";
+}
 }
 ?>
 
@@ -47,59 +48,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Usuário</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-      <nav class="navbar navbar-expand-md bg-primary-subtle">
+      <nav class="navbar navbar-expand-md bg-primary">
     <div class="container-fluid">
       
-      <a class="navbar-brand" href="#">SEI</a>
+      <a class="navbar-brand" href="">SEI</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/pages/registrar.php">Registrar-se</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Eventos
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Criar</a></li>
-              <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Outros</a></li>
-            </ul>
-          </li>
-         
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Pesquise ..." aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">Procurar</button>
-        </form>
+    
+        
       </div>
     </div>
   </nav>
 
     <div class="container mt-5">
         <h1 class="text-center">Cadastro do usuário: </h1>
-        <form action="registrar.php" method="POST">
+        <form  id ="cadastro" action="registrar.php" method="POST">
             <div class="mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
+                <label for="nome" class="form-label">Nome *</label>
+                <input type="text" class="form-control required" id="nome" name="nome" required oninput="validateNome()">
+                <span class="span-required">O nome deve conter duas ou mais palavras, cada uma com pelo menos 2 caracteres sem números ou carateres especias</span>
             </div>
             <div class="mb-3">
                 <label for="celular" class="form-label">Celular</label>
-                <input type="text" class="form-control" id="celular" name="celular" require>
+                <input type="text" class="form-control" id="celular" name="celular" required>
             </div>
             <div class="mb-3">
                 <label for="genero" class="form-label">Gênero</label>
