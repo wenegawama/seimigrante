@@ -1,34 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form[action="registrar.php"]');
-    if (!form) return;
+const form = document.getElementById('cadastro');
+const campos = document.querySelectorAll('.required');
+const spans = document.querySelectorAll('.span-required');
 
-    form.addEventListener('submit', function (e) {
-        const nome = document.getElementById('nome').value.trim();
-        const celular = document.getElementById('celular').value.trim();
-        const login = document.getElementById('login').value.trim();
-        const senha = document.getElementById('senha').value.trim();
+const nomeRegex = /^([a-zA-Z]{2,})(\s[a-zA-Z]{2,})+$/
 
-        let errors = [];
+function setError(index) {
+    campos[index].style.border = '2px solid #e63636';
+    spans[index].style.display = 'block';
+}
+function removeError(index) {
+    campos[index].style.border = '';
+    spans[index].style.display = 'none';
+}
 
-        if (nome.length < 2) {
-            errors.push('Nome deve ter pelo menos 2 caracteres.');
-        }
-
-        if (!/^\d{8,15}$/.test(celular)) {
-            errors.push('Celular deve conter apenas números e ter entre 8 e 15 dígitos.');
-        }
-
-        if (!login.includes('@')) {
-            errors.push('Email inválido.');
-        }
-
-        if (senha.length < 6) {
-            errors.push('A senha deve ter pelo menos 6 caracteres.');
-        }
-
-        if (errors.length > 0) {
-            e.preventDefault();
-            alert(errors.join('\n'));
-        }
-    });
-});
+function validateNome() {
+    if (!nomeRegex.test(campos[0].value)) {
+        setError(0)
+    } else {
+        removeError(0);
+    }
+}

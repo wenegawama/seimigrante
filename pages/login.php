@@ -1,6 +1,11 @@
-
 <?php
 session_start();
+//se o usuario ja esta logado, redireciona para o dashboard.php
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: dashboard.php');
+    exit;
+}
+//se nao, entao faca o login
 require_once __DIR__ . '/../db/DBConnection.php';
 
 $erro = '';
@@ -19,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($usuario && password_verify($senha, $usuario['senha'])) {
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['usuario_nome'] = $usuario['nome'];
+        $_SESSION['usuario_perfil'] = $usuario['perfil'];
+        $_SESSION['usuario_ativo'] = $usuario['ativo'];
         header('Location: dashboard.php');
         exit;
     } else {
@@ -36,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </head>
   <body>
     <!-- Header fixo -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">SEI</a>
+        <a class="navbar-brand" href="/index.php">SEI</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </nav>
 
-    <!-- Conteúdo da página -->
     <div class="container" style="margin-top: 80px;">
       <div class="row justify-content-center">
         <div class="col-md-6">

@@ -15,10 +15,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-primary-subtle">
+  <nav class="navbar navbar-expand-md bg-primary">
     <div class="container-fluid">
       
-      <a class="navbar-brand" href="#">SEI</a>
+     
+      <a class="navbar-brand" href="">SEI</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,7 +29,7 @@
             <a class="nav-link" href="pages/registrar.php">Registrar-se</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="pages/login.php">Login</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
