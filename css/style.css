@@ -1,3 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    background-color: #2E68B3;
+}
+
+.nav-bg{
+    background-color: #F4E9DC;
+;
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.boxshowdow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
+                0 2px 4px 0 rgba(0,0,0,.05);
+}
+
 h1 {
     color: #0051ff;
     font-size: 24px;
@@ -9,4 +35,15 @@ h1 {
     font-size: 12px;
     margin: 3px 0 0 1px;
     color: red
+}
+footer {
+    background-color: #F5ECCF;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    position: fixed; 
+    bottom: 0; 
+    
 }

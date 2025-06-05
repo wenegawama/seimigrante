@@ -11,50 +11,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema de eventos para imigrantes</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-primary">
-    <div class="container-fluid">
-      
-     
-      <a class="navbar-brand" href="">SEI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+  <nav class="navbar navbar-expand-md navbar-light   py-3 boxshowdow nav-bg" >
+      <a href="index.php" class="navbar-brand"><img src="img/newLogo.jpg" alt="Logo" height="80px" width="80px" class="mx-4"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="pages/registrar.php">Registrar-se</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-2">
+            <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/login.php">Login</a>
+           <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/auth/dashboard.php">Dashboard</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Eventos
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Criar</a></li>
-              <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Outros</a></li>
-            </ul>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/crud/crudLocal/local_criar.php">Local</a>
           </li>
-         
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/crud/crudEnconto/encontro_criar.php">Encontro</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/crud/crudAtividade/atividade_criar.php">Atividade</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/crud/crudevento/evento_criar.php">Evento</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/auth/login.php">Login</a></li>
+          <li class="nav-item mx-2">
+            <a class="btn btn-outline-primary ms-md-2" href="pages/auth/registrar.php">Inscreva-se</a>
+          </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Pesquise ..." aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">Procurar</button>
-        </form>
+      </div>
+    </nav>
+
+
+    <div class="container mt-1 pt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="text-center mb-1 text-white">Pontos de eventos no mapa </h2>
+          <div class="container bg-primary">
+                <h1 class="text-white">Hello</h1><!--Aqui vai ficar o mapa com os loais de eventos-->
+          </div>
+         
+        </div>
       </div>
     </div>
-  </nav>
 
-
+    <footer class="text-black mt-5">
+        <div class="container text-center py-4">
+            <p class="mb-0">© 2025 Sistema de Eventos para Imigrantes.</p>
+            <p> Todos os direitos reservados.</p>
+    </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
