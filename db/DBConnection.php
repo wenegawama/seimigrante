@@ -1,7 +1,7 @@
 <?php
 class DBConnection {
     private $host = 'localhost';
-    private $db = 'sei2';
+    private $db = 'sei3';
     private $user = 'root';
     private $pass = '123456';
     private $charset = 'utf8mb4';
