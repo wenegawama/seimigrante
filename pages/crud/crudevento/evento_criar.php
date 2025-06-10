@@ -7,13 +7,14 @@ $locais = $conn->query("SELECT idLocal, descricao FROM local")->fetchAll(PDO::FE
 $atividades = $conn->query("SELECT idAtividade, descricao FROM atividade")->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = $_POST['nome'];
     $local = $_POST['local'];
     $data = $_POST['data'];
     $hora = $_POST['hora'];
     $atividade = $_POST['atividade'];
     $observacao = $_POST['observacao'];
-    $stmt = $conn->prepare("INSERT INTO evento (local, data, hora, atividade, observacao) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$local, $data, $hora, $atividade, $observacao]);
+    $stmt = $conn->prepare("INSERT INTO evento (nome, local, data, hora, atividade, observacao) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$nome, $local, $data, $hora, $atividade, $observacao]);
     header('Location: evento_listar.php');
     exit;
 }
@@ -45,7 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container mt-5">
     <h1 class="text-white">Novo Evento</h1>
     <form method="post">
-        <div class="mb-3">
+        <div class="mb-1">
+            <label class="form-label text-white">Nome</label>
+            <input type="text" name="nome" class="form-control" required>
+        </div>
+        <div class="mb-1">
             <label class="form-label text-white">Local</label>
             <select name="local" class="form-control" required>
                 <option value="">Selecione</option>
@@ -54,15 +59,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
             <label class="form-label text-white">Data</label>
             <input type="date" name="data" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
             <label class="form-label text-white">Hora</label>
             <input type="time" name="hora" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
             <label class="form-label text-white">Atividade</label>
             <select name="atividade" class="form-control" required>
                 <option value="">Selecione</option>
@@ -71,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
             <label class="form-label text-white">Observação</label>
             <textarea name="observacao" class="form-control"></textarea>
         </div>
@@ -79,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="evento_listar.php" class="btn btn-secondary">Voltar</a>
     </form>
 </div>
-<footer class="text-black mt-5">
+<footer class="text-black mt-2">
         <div class="container text-center py-4">
             <p class="mb-0">© 2025 Sistema de Eventos para Imigrantes.</p>
             <p> Todos os direitos reservados.</p>

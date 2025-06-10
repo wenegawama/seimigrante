@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/DBConnection.php';
+require_once __DIR__ . '../../../../db/DBConnection.php';
 $id = $_GET['id'] ?? null;
 if ($id) {
     $db = new DBConnection();

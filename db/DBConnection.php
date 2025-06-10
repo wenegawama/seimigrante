@@ -1,9 +1,9 @@
 <?php
 class DBConnection {
     private $host = 'localhost';
-    private $db = 'sei3';
+    private $db = 'sei';
     private $user = 'root';
-    private $pass = '123456';
+    private $pass = '';
     private $charset = 'utf8mb4';
     private $pdo;
 
