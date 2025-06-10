@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/DBConnection.php';
+require_once __DIR__ . '/../../../db/DBConnection.php';
 $db = new DBConnection();
 $conn = $db->getConnection();
 
@@ -31,7 +31,7 @@ $atividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </nav>
 <div class="container mt-5">
-    <h1 class="tetxt-white">Atividades</h1>
+    <h1 class="text-white">Atividades</h1>
     <a href="atividade_criar.php" class="btn btn-success mb-3">Nova Atividade</a>
     <table class="table table-bordered">
         <thead>

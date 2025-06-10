@@ -5,13 +5,12 @@
 }
 
 body {
-    
     background-color: #2E68B3;
 }
 
-.nav-bg{
+.nav-bg {
     background-color: #F4E9DC;
-;
+    ;
     width: 100%;
 }
 
@@ -20,8 +19,8 @@ body {
 }
 
 .boxshowdow {
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
-                0 2px 4px 0 rgba(0,0,0,.05);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05),
+        0 2px 4px 0 rgba(0, 0, 0, .05);
 }
 
 h1 {
@@ -30,12 +29,14 @@ h1 {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
 .span-required {
     display: none;
     font-size: 12px;
     margin: 3px 0 0 1px;
     color: red
 }
+
 footer {
     background-color: #F5ECCF;
     width: 100%;
@@ -43,7 +44,12 @@ footer {
     padding: 0;
     left: 0;
     right: 0;
-    position: fixed; 
-    bottom: 0; 
-    
+    position: fixed;
+    bottom: 0;
+
+}
+
+a.text-white {
+    text-decoration: none;
+
 }

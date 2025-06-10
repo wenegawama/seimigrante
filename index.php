@@ -27,8 +27,9 @@
             <li class="nav-item mx-2">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-           <li class="nav-item mx-2">
-            <a class="nav-link" href="pages/auth/dashboard.php">Dashboard</a>
+         
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="pages/sei.php">Mapa</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="pages/crud/crudLocal/local_criar.php">Local</a>
@@ -43,7 +44,8 @@
             <a class="nav-link" href="pages/crud/crudevento/evento_criar.php">Evento</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="pages/auth/login.php">Login</a></li>
+            <a class="nav-link" href="pages/auth/login.php">Login</a>
+          </li>
           <li class="nav-item mx-2">
             <a class="btn btn-outline-primary ms-md-2" href="pages/auth/registrar.php">Inscreva-se</a>
           </li>
@@ -55,10 +57,8 @@
     <div class="container mt-1 pt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <h2 class="text-center mb-1 text-white">Pontos de eventos no mapa </h2>
-          <div class="container bg-primary">
-                <h1 class="text-white">Hello</h1><!--Aqui vai ficar o mapa com os loais de eventos-->
-          </div>
+          <h1 class="text-center mb-1 text-white">Visualizar locais de eventos no mapa?</h1>
+                <a href="pages/sei.php" class="text-white text-center"><h2 >Clique aqui!</h2></a><!--Aqui vai ficar o mapa com os loais de eventos-->
          
         </div>
       </div>

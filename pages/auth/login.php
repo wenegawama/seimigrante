@@ -7,18 +7,19 @@ if (isset($_SESSION['usuario_id'])) {
 }
 //se nao, entao faca o login
 require_once __DIR__ . '/../../db/DBConnection.php';
+require_once __DIR__ . '/../Usuario.php';
 
 $erro = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
-    $senha = $_POST['password'] ?? '';
+    $login = $_POST['login'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
     $db = new DBConnection();
     $conn = $db->getConnection();
 
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ? AND ativo = 1 LIMIT 1");
-    $stmt->execute([$email]);
+    $stmt->execute([$login]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario && password_verify($senha, $usuario['senha'])) {
@@ -26,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['usuario_nome'] = $usuario['nome'];
         $_SESSION['usuario_perfil'] = $usuario['perfil'];
         $_SESSION['usuario_ativo'] = $usuario['ativo'];
-        header('Location: dashboard.php');
+
+        header('Location: ../../pages/auth/dashboard.php');
         exit;
     } else {
         $erro = 'Email ou senha inválidos!';
@@ -72,12 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <?php endif; ?>
               <form action="login.php" method="post">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <label for="login" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="login" name="login" required>
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
+                  <label for="senha" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="senha" name="senha" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
               </form>
