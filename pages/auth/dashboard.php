@@ -1,13 +1,13 @@
 <?php
-    // A sessão precisa ser iniciada em cada página diferente
+    
     if (!isset($_SESSION)) session_start();
     $nome = $_SESSION['usuario_nome'];
     $nivel_necessario = $_SESSION['usuario_perfil'];
-    // Verifica se não há a variável da sessão que identifica o usuário
+    
     if (!isset($_SESSION['usuario_id']) OR ($_SESSION['usuario_perfil']<$nivel_necessario)) {
-        // Destrói a sessão por segurança
+        
         session_destroy();
-        // Redireciona o visitante de volta pro login
+        
         header("Location: login.php"); exit;
     }
 ?>
@@ -23,7 +23,7 @@
     <body>        
         <nav class="navbar navbar-expand-md navbar-light   py-3 boxshowdow nav-bg" >
             <div class="container-fluid">
-            <a class="navbar-brand" a href="../../index.php" class="navbar-brand"><img src="../../img/logo.png" alt="Logo" height="80px" width="80px" class="mx-4"></a></a>
+            <a class="navbar-brand" a href="../../index.php" class="navbar-brand"><img src="../../img/newLogo.jpg" alt="Logo" height="80px" width="80px" class="mx-4"></a></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-2">
@@ -59,39 +59,113 @@
             <div class="col-md-3 mb-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Atividade</h5>
-                        <p class="card-text">Criar uma nova atividade.</p>
-                        <a href="../crud/crudAtividade/atividade_criar.php" class="btn btn-primary">Criar Atividade</a>
+                        <h5 class="card-title text-center">Atividade</h5>
+                        <p class="card-text text-center">Gerenciar atividades.</p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6">
+                                <a href="../crud/crudAtividade/atividade_criar.php" class="btn btn-primary w-100">Criar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudAtividade/atividade_listar.php" class="btn btn-primary w-100">Listar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudAtividade/atividade_editar.php" class="btn btn-primary w-100">Editar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudAtividade/atividade_excluir.php" class="btn btn-primary w-100">Excluir </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            
+           <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Local</h5>
+                        <p class="card-text text-center">Gerenciar locais.</p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6">
+                                <a href="../crud/crudLocal/local_criar.php" class="btn btn-primary w-100">Criar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudLocal/local_listar.php" class="btn btn-primary w-100">Listar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudLocal/local_editar.php" class="btn btn-primary w-100">Editar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudLocal/local_excluir.php" class="btn btn-primary w-100">Excluir </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="col-md-3 mb-2">
+           <div class="col-md-3 mb-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Local</h5>
-                        <p class="card-text">Criar um novo local.</p>
-                        <a href="../crud/crudLocal/local_criar.php" class="btn btn-primary">Criar Local</a>
+                        <h5 class="card-title text-center">Evento</h5>
+                        <p class="card-text text-center">Gerenciar eventos.</p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6">
+                                <a href="../crud/crudEvento/evento_criar.php" class="btn btn-primary w-100">Criar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEvento/evento_listar.php" class="btn btn-primary w-100">Listar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEvento/evento_editar.php" class="btn btn-primary w-100">Editar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEvento/evento_excluir.php" class="btn btn-primary w-100">Excluir </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="col-md-3 mb-2">
+           <div class="col-md-3 mb-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Evento</h5>
-                        <p class="card-text">Criar um novo evento.</p>
-                        <a href="../crud/crudEvento/evento_criar.php" class="btn btn-primary">Criar Evento</a>
+                        <h5 class="card-title text-center">Encontro</h5>
+                        <p class="card-text text-center">Gerenciar encontros.</p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6">
+                                <a href="../crud/crudEncontro/encontro_criar.php" class="btn btn-primary w-100">Criar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEncontro/encontro_listar.php" class="btn btn-primary w-100">Listar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEncontro/encontro_editar.php" class="btn btn-primary w-100">Editar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudEncontro/encontro_excluir.php" class="btn btn-primary w-100">Excluir </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
             <div class="col-md-3 mb-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Encontro</h5>
-                        <p class="card-text">Criar um novo encontro.</p>
-                        <a href="../crud/crudEncontro/encontro_criar.php" class="btn btn-primary">Criar encontro</a>
+                        <h5 class="card-title text-center">Usuario</h5>
+                        <p class="card-text text-center">Gerenciar usuários.</p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6">
+                                <a href="../crud/crudUsuario/usuario_criar.php" class="btn btn-primary w-100">Criar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudUsuario/usuario_listar.php" class="btn btn-primary w-100">Listar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudUsuario/usuario_editar.php" class="btn btn-primary w-100">Editar </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="../crud/crudUsuario/usuario_excluir.php" class="btn btn-primary w-100">Excluir </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>                    

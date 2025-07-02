@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once __DIR__ . '/../../db/DBConnection.php';
-    $erro = $_GET["erro"];
+    $erro = $_GET["erro"] ?? '';
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'] ?? '';
         $senha = $_POST['password'] ?? '';
@@ -36,7 +36,7 @@
     <body>
         <!-- Header fixo -->
         <nav class="navbar navbar-expand-md navbar-light   py-3 boxshowdow nav-bg" >
-            <a href="../../index.php" class="navbar-brand"><img src="../../img/logo.png" alt="Logo" height="80px" width="80px" class="mx-4"></a>
+            <a href="../../index.php" class="navbar-brand"><img src="../../img/newLogo.jpg" alt="Logo" height="80px" width="80px" class="mx-4"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,6 +71,7 @@
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Login</button>
+                                <a href="../auth/recuperar.php">Esqueceu a senha</a>
                             </form>
                         </div>
                     </div>

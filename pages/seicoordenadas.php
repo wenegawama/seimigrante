@@ -1,7 +1,7 @@
 <?php
 	
 	$servidor = "localhost";
-	$banco = "sei";
+	$banco = "seiof";
 	$usuario = "root";
 	$senha = "";
 

@@ -1,18 +1,16 @@
 <?php
-    // A sessão precisa ser iniciada em cada página diferente
     if (!isset($_SESSION)) session_start();
     $nivel_necessario = $_SESSION['usuario_perfil'];
-    // Verifica se não há a variável da sessão que identifica o usuário
     if (!isset($_SESSION['usuario_id']) OR ($_SESSION['usuario_perfil']<$nivel_necessario)) {
-        // Destrói a sessão por segurança
+       
         session_destroy();
-        // Redireciona o visitante de volta pro login
+       
         header("Location: ../../auth/login.php?erro=Necessário efetuar login no sistema!"); 
         exit;
     }
     
     if ($nivel_necessario == 1) 
-    { // Acesso Perfil Administrador
+    { 
         require_once __DIR__ . '../../../../db/DBConnection.php';
         $db = new DBConnection();
         $conn = $db->getConnection();
@@ -30,7 +28,7 @@
         </head>
         <body>
             <nav class="navbar navbar-expand-md navbar-light   py-3 boxshowdow nav-bg" >
-                <a href="../../../index.php" class="navbar-brand"><img src="../../../img/logo.png" alt="Logo" height="80px" width="80px" class="mx-4"></a>
+                <a href="../../../index.php" class="navbar-brand"><img src="../../../img/newLogo.jpg" alt="Logo" height="80px" width="80px" class="mx-4"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,7 +41,7 @@
                     </ul>
                 </div>
             </nav>
-            <div class="container mt-5">
+            <div class="container mt-1">
                 <h1 class="text-white">Locais</h1>
                 <a href="local_criar.php" class="btn btn-success mb-3">Novo Local</a>
                 <table class="table table-bordered">
@@ -68,15 +66,15 @@
                             <td><?= htmlspecialchars($local['complemento']) ?></td>
                             <td><?= $local['contato'] ?></td>
                             <td>
-                                <a href="local_editar.php?id=<?= $local['idLocal'] ?>" class="btn btn-primary btn-sm">Editar</a>
-                                <a href="local_excluir.php?id=<?= $local['idLocal'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza?')">Excluir</a>
+                                <a href="local_editar.php?id=<?= isset($local['idLocal']) ? $local['idLocal'] : '' ?>" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="local_excluir.php?id=<?= isset($local['idLocal']) ? $local['idLocal'] : '' ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza?')">Excluir</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-            <footer class="text-black mt-5">
+            <footer class="text-black mt-1">
                 <div class="container text-center py-4">
                     <p class="mb-0">© 2025 Sistema de Eventos para Imigrantes.</p>
                     <p> Todos os direitos reservados.</p>
@@ -86,7 +84,6 @@
     </html>
     <?php
         }else{
-        // Perfil é DIFERENTE de 1=Acesso Perfil Administrador
     header("Location: ../../auth/dashboard.php?erro=Acesso negado para o perfil do usuário!");
     }
 ?>

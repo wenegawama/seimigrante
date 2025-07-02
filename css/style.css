@@ -47,3 +47,10 @@ footer {
     bottom: 0; 
     
 }
+.footer_editar_usuario{
+    height: 7px;
+    min-height: 7px;
+    max-height: 7px;
+    overflow: hidden;
+    padding: 0;
+}
