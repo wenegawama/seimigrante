@@ -15,11 +15,10 @@ if ($nivel_necessario == 1) {
 
     $id = $_GET['id'] ?? null;
     if (!$id) {
-        header('Location: local_listar.php');
+        header('Location: usuario_listar.php');
         exit;
     }
 
-    
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE idUsuario = ?");
     $stmt->execute([$id]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -72,18 +71,18 @@ if ($nivel_necessario == 1) {
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
+    <div class="container mt-1">
         <h1 class="text-white">Editar Usuário</h1>
         <form method="post">
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Nome</label>
                 <input type="text" name="nome" class="form-control" value="<?= htmlspecialchars($usuario['nome']) ?>" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Celular</label>
                 <input type="text" name="celular" class="form-control" value="<?= htmlspecialchars($usuario['celular']) ?>" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Gênero</label>
                 <select name="genero" class="form-control">
                     <option value="Masculino" <?= $usuario['genero']=='Masculino'?'selected':'' ?>>Masculino</option>
@@ -91,39 +90,39 @@ if ($nivel_necessario == 1) {
                     <option value="Outro" <?= $usuario['genero']=='Outro'?'selected':'' ?>>Outro</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">País</label>
                 <select name="pais" class="form-control">
                     <option value="1" <?= $usuario['pais']=='1'?'selected':'' ?>>Brasil</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Email</label>
                 <input type="email" name="login" class="form-control" value="<?= htmlspecialchars($usuario['login']) ?>" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label text-white">Senha (deixe em branco para não alterar)</label>
+            <div class="mb-0">
+                <label class="form-label text-white">Senha</label>
                 <input type="password" name="senha" class="form-control">
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Perfil</label>
                 <select name="perfil" class="form-control">
                     <option value="1" <?= $usuario['perfil']=='1'?'selected':'' ?>>Administrador</option>
                     <option value="2" <?= $usuario['perfil']=='2'?'selected':'' ?>>Usuário</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
                 <label class="form-label text-white">Ativo</label>
                 <select name="ativo" class="form-control">
                     <option value="1" <?= $usuario['ativo']=='1'?'selected':'' ?>>Sim</option>
                     <option value="0" <?= $usuario['ativo']=='0'?'selected':'' ?>>Não</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="usuario_listar.php" class="btn btn-secondary">Voltar</a>
+            <button type="submit" class="btn btn-primary mb-2">Salvar</button>
+            <a href="usuario_listar.php" class="btn btn-secondary mb-2">Voltar</a>
         </form>
     </div>
-    <footer class="text-black mt-5">
+    <footer>
         <div class="container text-center py-4">
             <p class="mb-0">© 2025 Sistema de Eventos para Imigrantes.</p>
             <p>Todos os direitos reservados.</p>
@@ -133,5 +132,5 @@ if ($nivel_necessario == 1) {
     </html>
     <?php
 } else {
-    header("Location: ../../auth/dashboard.php?erro=Acesso negado para");
+    header("Location: ../../auth/dashboard.php?erro=Acesso negado para o perfil do usuário!");
 }

@@ -20,7 +20,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light   py-3 boxshowdow nav-bg" >
-            <a href="../../../index.php" class="navbar-brand"><img src="../../../img/logo.png" alt="Logo" height="80px" width="80px" class="mx-4"></a>
+            <a href="../../../index.php" class="navbar-brand"><img src="../../../img/newLogo.jpg" alt="Logo" height="80px" width="80px" class="mx-4"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
