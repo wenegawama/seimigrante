@@ -71,7 +71,9 @@
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Login</button>
-                                <a href="../auth/recuperar.php">Esqueceu a senha</a>
+                                <div class="text-center mt-3">
+                                    <a href="../auth/recuperar.php">Esqueceu a senha</a>
+                                </div>
                             </form>
                         </div>
                     </div>
