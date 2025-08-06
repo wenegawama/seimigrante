@@ -58,8 +58,8 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100  bg-gradient">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-center">Atividade</h5>
-                        <p class="card-text text-center">Gerenciar atividades.</p>
+                        <h5 class="card-title text-center text-primary">Atividade</h5>
+                        <p class="card-text text-center text-primary">Gerenciar atividades.</p>
                         <div class="row g-2 justify-content-center mt-auto">
                             <div class="col-6">
                                 <a href="../crud/crudAtividade/atividade_criar.php" class="btn btn-primary w-100">Criar</a>
@@ -80,8 +80,8 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 bg-gradient">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-center">Local</h5>
-                        <p class="card-text text-center">Gerenciar locais.</p>
+                        <h5 class="card-title text-center text-primary">Local</h5>
+                        <p class="card-text text-center text-primary">Gerenciar locais.</p>
                         <div class="row g-2 justify-content-center mt-auto">
                             <div class="col-6">
                                 <a href="../crud/crudLocal/local_criar.php" class="btn btn-primary w-100">Criar</a>
@@ -102,8 +102,8 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 bg-gradient">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-center">Evento</h5>
-                        <p class="card-text text-center">Gerenciar eventos.</p>
+                        <h5 class="card-title text-center text-primary">Evento</h5>
+                        <p class="card-text text-center text-primary">Gerenciar eventos.</p>
                         <div class="row g-2 justify-content-center mt-auto">
                             <div class="col-6">
                                 <a href="../crud/crudEvento/evento_criar.php" class="btn btn-primary w-100">Criar</a>
@@ -124,8 +124,8 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 bg-gradient">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-center">Encontro</h5>
-                        <p class="card-text text-center">Gerenciar encontros.</p>
+                        <h5 class="card-title text-center text-primary">Encontro</h5>
+                        <p class="card-text text-center text-primary">Gerenciar encontros.</p>
                         <div class="row g-2 justify-content-center mt-auto">
                             <div class="col-6">
                                 <a href="../crud/crudEncontro/encontro_criar.php" class="btn btn-primary w-100">Criar</a>
@@ -146,8 +146,8 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 bg-gradient">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-center">Usuário</h5>
-                        <p class="card-text text-center">Gerenciar usuários.</p>
+                        <h5 class="card-title text-center text-primary">Usuário</h5>
+                        <p class="card-text text-center text-primary">Gerenciar usuários.</p>
                         <div class="row g-2 justify-content-center mt-auto">
                             <div class="col-6">
                                 <a href="../crud/crudUsuario/usuario_criar.php" class="btn btn-primary w-100">Criar</a>
